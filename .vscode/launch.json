@@ -1,0 +1,58 @@
+{
+  "configurations": [
+    {
+      "type": "swift",
+      "request": "launch",
+      "args": [],
+      "cwd": "${workspaceFolder:brightness-pilot}/assets/brightness-cli",
+      "name": "Debug brightness-cli (assets/brightness-cli)",
+      "program": "${workspaceFolder:brightness-pilot}/assets/brightness-cli/.build/debug/brightness-cli",
+      "preLaunchTask": "swift: Build Debug brightness-cli (assets/brightness-cli)"
+    },
+    {
+      "type": "swift",
+      "request": "launch",
+      "args": [],
+      "cwd": "${workspaceFolder:brightness-pilot}/assets/brightness-cli",
+      "name": "Release brightness-cli (assets/brightness-cli)",
+      "program": "${workspaceFolder:brightness-pilot}/assets/brightness-cli/.build/release/brightness-cli",
+      "preLaunchTask": "swift: Build Release brightness-cli (assets/brightness-cli)"
+    },
+    {
+      "type": "swift",
+      "request": "launch",
+      "args": [],
+      "cwd": "${workspaceFolder:brightness-pilot}/brightness-cli",
+      "name": "Debug brightness-cli (brightness-cli)",
+      "program": "${workspaceFolder:brightness-pilot}/brightness-cli/.build/debug/brightness-cli",
+      "preLaunchTask": "swift: Build Debug brightness-cli (brightness-cli)"
+    },
+    {
+      "type": "swift",
+      "request": "launch",
+      "args": [],
+      "cwd": "${workspaceFolder:brightness-pilot}/brightness-cli",
+      "name": "Release brightness-cli (brightness-cli)",
+      "program": "${workspaceFolder:brightness-pilot}/brightness-cli/.build/release/brightness-cli",
+      "preLaunchTask": "swift: Build Release brightness-cli (brightness-cli)"
+    },
+    {
+      "type": "swift",
+      "request": "launch",
+      "args": [],
+      "cwd": "${workspaceFolder:brightness-pilot}/_brightness-cli",
+      "name": "Debug brightness-cli (_brightness-cli)",
+      "program": "${workspaceFolder:brightness-pilot}/_brightness-cli/.build/debug/brightness-cli",
+      "preLaunchTask": "swift: Build Debug brightness-cli (_brightness-cli)"
+    },
+    {
+      "type": "swift",
+      "request": "launch",
+      "args": [],
+      "cwd": "${workspaceFolder:brightness-pilot}/_brightness-cli",
+      "name": "Release brightness-cli (_brightness-cli)",
+      "program": "${workspaceFolder:brightness-pilot}/_brightness-cli/.build/release/brightness-cli",
+      "preLaunchTask": "swift: Build Release brightness-cli (_brightness-cli)"
+    }
+  ]
+}
