@@ -9,7 +9,7 @@
   "commands": [
     {
       "name": "index",
-      "title": "Show monitors",
+      "title": "Show Monitors",
       "description": "Show a list of all connected monitors",
       "mode": "view"
     }
