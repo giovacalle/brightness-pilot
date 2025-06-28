@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { List } from "@raycast/api";
-import { useCachedPromise } from "@raycast/utils";
+import { usePromise } from "@raycast/utils";
 import { getMonitors } from "./utils/get-monitors";
 import { Monitor } from "./types";
 import { MonitorListItem } from "./components/MonitorListItem";
@@ -23,7 +23,7 @@ export default function Command() {
     };
   }, [monitors, searchText]);
 
-  const { data = [], isLoading, error } = useCachedPromise(() => getMonitors());
+  const { data = [], isLoading, error } = usePromise(getMonitors);
 
   useEffect(() => {
     if (isLoading || data.length === 0 || monitors.length > 0) return;
@@ -39,10 +39,10 @@ export default function Command() {
     >
       <List.EmptyView
         icon={error ? "😩" : "😿"}
-        title="No monitors found"
+        title={error ? "Extension Error" : "No Monitors Found"}
         description={
           error
-            ? "Mayday, mayday! Something's broken in monitor-land! Please try again later (or open an issue on GitHub if it persists)."
+            ? error.message
             : searchText
               ? "Maybe they're hiding, or taking a break? Try connecting one or adjusting your search!"
               : "Something strange happened while fetching monitors"
