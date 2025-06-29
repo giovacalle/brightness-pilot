@@ -65,3 +65,10 @@ export async function getCli() {
     return cliPath;
   }
 }
+
+export async function clearCliDir() {
+  const cliDir = cliDirectory();
+  if (existsSync(cliDir)) {
+    await rm(cliDir, { recursive: true, force: true });
+  }
+}

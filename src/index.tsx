@@ -23,7 +23,7 @@ export default function Command() {
     };
   }, [monitors, searchText]);
 
-  const { data = [], isLoading, error } = usePromise(getMonitors);
+  const { data = [], isLoading, error, revalidate } = usePromise(getMonitors);
 
   useEffect(() => {
     if (isLoading || data.length === 0 || monitors.length > 0) return;
@@ -50,12 +50,28 @@ export default function Command() {
       />
       <List.Section title="Built-in Monitors">
         {filteredMonitors.builtIn.map((monitor) => (
-          <MonitorListItem key={monitor.id} monitor={monitor} setMonitors={setMonitors} />
+          <MonitorListItem
+            key={monitor.id}
+            monitor={monitor}
+            setMonitors={setMonitors}
+            revalidate={async () => {
+              setMonitors([]);
+              await revalidate();
+            }}
+          />
         ))}
       </List.Section>
       <List.Section title="External Monitors">
         {filteredMonitors.external.map((monitor) => (
-          <MonitorListItem key={monitor.id} monitor={monitor} setMonitors={setMonitors} />
+          <MonitorListItem
+            key={monitor.id}
+            monitor={monitor}
+            setMonitors={setMonitors}
+            revalidate={async () => {
+              setMonitors([]);
+              await revalidate();
+            }}
+          />
         ))}
       </List.Section>
     </List>
