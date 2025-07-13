@@ -35,5 +35,5 @@ export const ClearCacheAction = ({ revalidate }: ClearCacheActionProps) => {
     }
   };
 
-  return <Action title="Clear CLI Cache" icon={Icon.Trash} style={Action.Style.Destructive} onAction={onClearCache} />;
+  return <Action title="Clear Cli Cache" icon={Icon.Trash} style={Action.Style.Destructive} onAction={onClearCache} />;
 };
