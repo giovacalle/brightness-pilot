@@ -10,7 +10,20 @@
     {
       "name": "index",
       "title": "Show Monitors",
-      "description": "Show a list of all connected monitors",
+      "description": "Show a list of all connected monitors with brightness controls",
+      "mode": "view"
+    },
+    {
+      "name": "menubar",
+      "title": "Brightness Status",
+      "description": "Show brightness status in the menu bar",
+      "mode": "menu-bar",
+      "interval": "10m"
+    },
+    {
+      "name": "set-all",
+      "title": "Set All Brightness",
+      "description": "Set brightness for all monitors at once",
       "mode": "view"
     }
   ],

@@ -3,7 +3,7 @@ import { showFailureToast } from "@raycast/utils";
 import { clearCliDir } from "../utils/cli";
 
 interface ClearCacheActionProps {
-  revalidate?: () => Promise<void>;
+  revalidate?: () => Promise<unknown>;
 }
 
 export const ClearCacheAction = ({ revalidate }: ClearCacheActionProps) => {
