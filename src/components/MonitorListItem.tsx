@@ -2,6 +2,7 @@ import { Action, ActionPanel, Color, Icon, List, showToast, Toast } from "@rayca
 import { Dispatch, SetStateAction, useRef } from "react";
 import { Monitor } from "../types";
 import { setBrightness } from "../utils/set-brightness";
+import { toggleNightShift } from "../utils/night-shift";
 import { ClearCacheAction } from "./ClearCacheAction";
 import { BRIGHTNESS_STEP, BRIGHTNESS_MIN, BRIGHTNESS_MAX } from "../constants";
 
@@ -83,6 +84,28 @@ export function MonitorListItem({ monitor, setMonitors, revalidate }: MonitorLis
               />
             </ActionPanel.Section>
           )}
+          <ActionPanel.Section title="Night Shift">
+            <Action
+              title="Toggle Night Shift"
+              icon={Icon.Moon}
+              shortcut={{ modifiers: ["cmd", "shift"], key: "n" }}
+              onAction={async () => {
+                try {
+                  const result = await toggleNightShift();
+                  await showToast({
+                    style: Toast.Style.Success,
+                    title: result.enabled ? "Night Shift: On" : "Night Shift: Off",
+                  });
+                } catch (error) {
+                  await showToast({
+                    style: Toast.Style.Failure,
+                    title: "Failed to toggle Night Shift",
+                    message: error instanceof Error ? error.message : String(error),
+                  });
+                }
+              }}
+            />
+          </ActionPanel.Section>
           <ActionPanel.Section>
             <ClearCacheAction revalidate={revalidate} />
           </ActionPanel.Section>

@@ -25,6 +25,18 @@
       "title": "Set All Brightness",
       "description": "Set brightness for all monitors at once",
       "mode": "view"
+    },
+    {
+      "name": "toggle-night-shift",
+      "title": "Toggle Night Shift",
+      "description": "Toggle Night Shift on/off",
+      "mode": "no-view"
+    },
+    {
+      "name": "set-night-shift",
+      "title": "Set Night Shift Strength",
+      "description": "Set the Night Shift color temperature strength",
+      "mode": "view"
     }
   ],
   "dependencies": {

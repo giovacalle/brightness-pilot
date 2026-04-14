@@ -2,6 +2,7 @@ import { Icon, MenuBarExtra, showHUD } from "@raycast/api";
 import { usePromise } from "@raycast/utils";
 import { getMonitors } from "./utils/get-monitors";
 import { setBrightness } from "./utils/set-brightness";
+import { toggleNightShift } from "./utils/night-shift";
 import { BRIGHTNESS_STEP, BRIGHTNESS_MIN, BRIGHTNESS_MAX } from "./constants";
 import { Monitor } from "./types";
 
@@ -48,6 +49,20 @@ export default function BrightnessMenuBar() {
           )}
         </MenuBarExtra.Section>
       ))}
+      <MenuBarExtra.Section title="Night Shift">
+        <MenuBarExtra.Item
+          title="Toggle Night Shift"
+          icon={Icon.Moon}
+          onAction={async () => {
+            try {
+              const result = await toggleNightShift();
+              await showHUD(result.enabled ? "Night Shift: On" : "Night Shift: Off");
+            } catch (error) {
+              await showHUD(`Failed: ${error instanceof Error ? error.message : "Unknown error"}`);
+            }
+          }}
+        />
+      </MenuBarExtra.Section>
       <MenuBarExtra.Section>
         <MenuBarExtra.Item title="Refresh" icon={Icon.ArrowClockwise} onAction={() => revalidate()} />
       </MenuBarExtra.Section>

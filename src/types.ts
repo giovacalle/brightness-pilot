@@ -16,6 +16,19 @@ export interface CLIResult {
   error?: string;
 }
 
+export interface NightShiftStatus {
+  enabled: boolean;
+  active: boolean;
+  strength: number;
+}
+
+export interface NightShiftResult {
+  success: boolean;
+  enabled?: boolean;
+  strength?: number;
+  error?: string;
+}
+
 export interface Release {
   assets: Array<{
     name: string;
