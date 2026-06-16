@@ -60,7 +60,13 @@ export function MonitorListItem({ monitor, setMonitors, revalidate }: MonitorLis
   if (monitor.isSupported && monitor.brightness != null) {
     accessories.push({ text: brightnessPercent, icon: Icon.Sun });
   } else if (!monitor.isSupported) {
-    accessories.push({ tag: { value: "Not supported", color: Color.Red } });
+    accessories.push({
+      tag: {
+        value: monitor.brightnessControl?.reasonCode === "ddcCommunicationFailed" ? "DDC failed" : "Not supported",
+        color: Color.Red,
+      },
+      tooltip: monitor.brightnessControl?.message,
+    });
   }
 
   return (

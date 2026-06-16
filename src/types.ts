@@ -1,4 +1,14 @@
 export type ConnectionType = "builtIn" | "displayPort" | "hdmi" | "unknown";
+export type BrightnessControlMethod = "native" | "ddc";
+export type BrightnessControlStatus = "supported" | "unsupported" | "ddcFailed" | "unknown" | "invalidResponse";
+
+export interface BrightnessControl {
+  available: boolean;
+  method?: BrightnessControlMethod;
+  status: BrightnessControlStatus;
+  reasonCode: string;
+  message: string;
+}
 
 export interface Monitor {
   id: number;
@@ -7,6 +17,7 @@ export interface Monitor {
   isBuiltIn: boolean;
   isSupported: boolean;
   connectionType: ConnectionType;
+  brightnessControl?: BrightnessControl;
 }
 
 export interface CLIResult {
